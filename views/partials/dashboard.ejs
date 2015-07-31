@@ -1,0 +1,91 @@
+
+<div class="col-sm-12" ng-if="mainapp.loggedIn" ng-cloak>
+
+	<h2>
+		<span class="glyphicon glyphicon-cog"></span>
+		Dashboard
+	</h2>
+
+	<hr></hr>
+
+	<div class="col-sm-3">
+		<section>
+			<div class="panel panel-warning" ng-if="mainapp.userData.privilege >= 1" ng-cloak>
+				<div class="panel-heading">
+					{{dash.getPrivilege(dash.selfData.privilege)}}
+				</div>
+				<div class="panel-body">
+					<div class="list-group">
+						<a href="#" class="list-group-item" ng-repeat="item in dash.adminMenu" ng-click="dash.setState(item.link)" ng-class="{ active: dash.state === item.link }">
+							<span class="glyphicon glyphicon-{{item.icon}}"></span>
+							{{item.desc}}
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-info" ng-if ="mainapp.userData.privilege >= 0" ng-cloak>
+				<div class="panel-heading">
+					User
+				</div>
+				<div class="panel-body">
+					<div class="list-group">
+						<a href="#" class="list-group-item" ng-repeat="item in dash.userMenu" ng-click="dash.setState(item.link)" ng-class="{ active: dash.state === item.link }">
+							<span class="glyphicon glyphicon-{{item.icon}}"></span>
+							{{item.desc}}
+						</a>
+						<a href="#" class="list-group-item" ng-click="dash.setState('updateSelf')" ng-class="{ active: dash.editingSelf === true }">
+							<span class="glyphicon glyphicon-pencil"></span>
+							Update your info
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="col-sm-7 col-sm-offset-1">
+		<div ng-if="dash.state === 'welcome'" class="view-animate" push-bottom>
+			<% include dash/welcome %>
+		</div>
+		<div ng-if="dash.state === 'newUser'" class="view-animate" push-bottom>
+			<% include dash/newUser %>
+
+			<div class="alert alert-{{dash.userAlert.type}} alert-dismissible animate-UI-alert dash-alert" role="alert" ng-if="dash.userAlert.show">
+			  <button type="button" class="close"aria-label="Close" ng-click="dash.userAlert.show=false"><span aria-hidden="true">&times;</span></button>
+			  {{dash.userAlert.message}}
+			</div>
+		</div>
+		<div ng-if="dash.state === 'editUser'" class="view-animate" push-bottom>
+			<% include dash/editUser %>
+
+			<div class="alert alert-{{dash.userAlert.type}} alert-dismissible animate-UI-alert dash-alert" role="alert" ng-if="dash.userAlert.show">
+			  <button type="button" class="close"aria-label="Close" ng-click="dash.userAlert.show=false"><span aria-hidden="true">&times;</span></button>
+			  {{dash.userAlert.message}}
+			</div>
+		</div>
+		<div ng-if="dash.state === 'allUsers'" class="view-animate" push-bottom>
+			<% include dash/getUsers %>
+
+			<div class="alert alert-{{dash.userAlert.type}} alert-dismissible animate-UI-alert dash-alert" role="alert" ng-if="dash.userAlert.show">
+			  <button type="button" class="close"aria-label="Close" ng-click="dash.userAlert.show=false"><span aria-hidden="true">&times;</span></button>
+			  {{dash.userAlert.message}}
+			</div>
+		</div>
+		<div ng-if="dash.state === 'newPost'" class="view-animate" push-bottom>
+			<% include dash/newPost %>
+
+			<div class="alert alert-{{dash.userAlert.type}} alert-dismissible animate-UI-alert dash-alert" role="alert" ng-if="dash.userAlert.show">
+			  <button type="button" class="close"aria-label="Close" ng-click="dash.userAlert.show=false"><span aria-hidden="true">&times;</span></button>
+			  {{dash.userAlert.message}}
+			</div>
+		</div>
+		<div ng-if="dash.state === 'myPosts'" class="view-animate" push-bottom>
+			<% include dash/myPosts %>
+
+			<div class="alert alert-{{dash.userAlert.type}} alert-dismissible animate-UI-alert dash-alert" role="alert" ng-if="dash.userAlert.show">
+			  <button type="button" class="close"aria-label="Close" ng-click="dash.userAlert.show=false"><span aria-hidden="true">&times;</span></button>
+			  {{dash.userAlert.message}}
+			</div>
+		</div>			
+	</div>
+</div>

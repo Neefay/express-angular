@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exangularApp" ng-controller="AppMainCtrl as mainapp">
+
+	<head>
+		<% include ../components/head %>
+
+		<title>Express page - Index</title>
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+			<nav class="navbar">
+				<% include ../components/nav %>
+			</nav>
+
+			<div class="container">
+				<section id="content-view" class="smooth-height">
+						<ng-view push-bottom class="view-animate"></ng-view>				
+				</section>
+			</div>
+
+			<section class="footer">
+				<% include ../components/footer %>
+			</section>
+
+		</div>
+
+		<% include ../components/scripts %>
+		<% include ../components/angular %>
+	</body>
+</html>

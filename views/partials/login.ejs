@@ -1,0 +1,27 @@
+
+<div class="col-md-12">
+	<div class="col-md-5 centering">
+		<div class="jumbotron" style="height:400px">
+			<h1 class="text-center">Login</h1>
+			<br/>
+			<form ng-submit="mainapp.loginUser()" style="margin-bottom:20px;">
+				<div class="form-group">
+					<input type="text" ng-model="mainapp.formData.username" class="form-control" id="input-username" placeholder="Username" required></input>
+				</div>
+				<div class="form-group">
+					<input type="password" ng-model="mainapp.formData.password" class="form-control" id="input-password" placeholder="Password" required></input>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-default btn-lg">
+						<span ng-if="!mainapp.waitingData">Login</span>
+						<span ng-if="mainapp.waitingData"><img src="images/loading.gif" /></span>
+					</button>
+				</div>
+			</form>
+			<div class="alert alert-{{mainapp.loginAlert.type}} alert-dismissible animate-UI-alert" role="alert" ng-if="mainapp.loginAlert.show">
+			  <button type="button" class="close"aria-label="Close" ng-click="mainapp.loginAlert.show=false"><span aria-hidden="true">&times;</span></button>
+			  {{mainapp.loginAlert.message}}
+			</div>
+		</div>
+	</div>
+</div>

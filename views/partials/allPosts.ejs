@@ -1,0 +1,24 @@
+
+<div class="col-lg-12" ng-init="blog.InitializeAll()">
+	<h1>News</h1>
+
+	<hr></hr>
+	<div ng-repeat="post in blog.postsData | orderBy: order : true">
+		<h3>
+			<a href="/blog/{{post._id}}">{{post.title}}</a>
+		</h3>
+		<p>By {{post._author.name}} on <i>{{post.date | date}}</i></p>
+		<p>		
+			<ul class="list-inline list-unstyled" ng-if="post.tags.length >= 1">
+				<li ng-repeat="tag in post.tags">
+					<span class="label label-info">
+						<a ng-href="blog/tags/{{tag}}">{{ tag }}</a>
+					</span>
+				</li>
+			</ul>
+		</p>
+		<br/>
+		<p>{{post.body}}</p>
+		<hr></hr>
+	</div>		
+</div>

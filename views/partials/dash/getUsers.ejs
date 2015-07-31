@@ -1,0 +1,49 @@
+
+<section ng-if="mainapp.userData.privilege >= 1" ng-cloak>
+	<h2>All Users</h2>
+	<hr></hr>
+	<div style="height: 220px">
+		<table class="table table-striped">
+			<tr>
+				<th>Username</th>
+				<th>Name</th> 
+				<th>Privilege</th>
+				<th>Joined</th>
+				<th>Posts</th>
+				<th></th>
+			</tr>
+			<tr ng-repeat="user in dash.allUsersTable.data">
+				<td>{{user.username}}</td>
+				<td>{{user.name}}</td>
+				<td>{{dash.getPrivilege(user.privilege)}}</td>
+				<td>{{user.join_date | date}}</td>
+				<td>{{user.posts.length}}</td>
+				<td>
+					<div ng-if="!(dash.selfData.username === user.username)">
+						<button class="btn btn-info btn-sm" ng-click="dash.setState('userUpdate', user.username)" ng-if="mainapp.userData.privilege >= 1" ng-cloak>
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>			
+						<button class="btn btn-danger btn-sm" ng-click="dash.removeUser(user.username)" ng-if="mainapp.userData.privilege >= 2" ng-cloak>
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="text-center">
+		<nav>
+			<ul class="pagination">
+				<li ng-click="dash.addUserPage(-1)">
+					<a href="#" aria-label="Previous"><span aria-hidden="true"><</span></a>
+				</li>
+				<li ng-click="dash.setUserPage($index+1)" ng-repeat="page in dash.getNumber(dash.allUsersTablePagesTotal) track by $index" ng-class="{ active: dash.allUsersTablePage === $index+1 }" class="animate-repeat">
+					<a href="#">{{ $index+1 }}</a>
+				</li>
+				<li ng-click="dash.addUserPage(1)">
+					<a href="#" aria-label="Next"><span aria-hidden="true">></span></a>
+				</li>
+			</ul>		
+		</nav>
+	</div>	
+</section>

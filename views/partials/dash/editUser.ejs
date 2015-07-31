@@ -1,0 +1,44 @@
+
+<section>
+	<h2>Edit user</h2>
+	<hr></hr>
+	<form ng-submit="dash.updateUser(dash.editFormData.username)">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input ng-model="dash.editFormData.name" class="form-control" name="name" type="text" placeholder="Anonymous User"></input>
+		</div>
+		<div class="form-group">
+			<label for="password1">New Password</label>
+			<input ng-model="dash.editFormData.password1" class="form-control" name="password1" type="password"></input>
+		</div>
+		<div class="form-group">
+			<label for="password2">Repeat new password</label>
+			<input ng-model="dash.editFormData.password2" class="form-control" name="password2" type="password"></input>
+		</div>
+		<div class="form-group" ng-if="!dash.editingSelf" ng-cloak>
+			<label for="privilege">User privilege</label>
+			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" name="privilege" type="button" data-toggle="dropdown">
+			  {{ dash.getPrivilege(dash.editFormData.userPrivilege) || 'User privileges' }}
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+					<li><a href="#" ng-click="dash.editFormData.userPrivilege = 2" ng-if="mainapp.userData.privilege >= 2" ng-cloak>Administrator</a></li>
+					<li><a href="#" ng-click="dash.editFormData.userPrivilege = 1" ng-if="mainapp.userData.privilege >= 1" ng-cloak>Moderator</a></li>
+					<li><a href="#" ng-click="dash.editFormData.userPrivilege = 0">User</a></li>
+			  </ul>
+			</div>
+		</div>
+		<br/>
+		<div class="form-group" ng-if="mainapp.userData.privilege === 0">
+			<label for="currentpassword">Confirm password</label>
+			<input ng-model="dash.editFormData.currentpassword" class="form-control" name="currentpassword" type="password" required></input>
+		</div>		
+		<button class="btn btn-default" type="submit">
+			<span ng-if="!dash.busy">
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				Update user
+			</span>
+			<span ng-if="dash.busy"><img src="images/loading.gif" /></span>
+		</button>
+	</form>
+</section>

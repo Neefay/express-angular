@@ -5,6 +5,11 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+# Bower and NPM
+
+/node_modules
+/bower_components
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 

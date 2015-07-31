@@ -1,0 +1,39 @@
+
+<div ng-controller="NavCtrl as nav" ng-cloak>
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+		 <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+		 </div>
+
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-left">
+				<li ng-repeat="item in nav.userMenu" ng-class="{ active: nav.isActive(item.link) }" ng-if="mainapp.loggedIn">
+					<a ng-href={{item.link}}>{{ item.desc }}</a>
+				</li>			
+				<li ng-repeat="item in nav.menu" ng-class="{ active: nav.isActive(item.link) }">
+					<a ng-href={{item.link}}>{{ item.desc }}</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right animate-fade" ng-if="mainapp.loggedIn">
+				<li class="navbar-text">
+					Welcome, {{ mainapp.userData.name || 'Anonymous User' }}.
+				</li>
+				<li>
+					<a href="#" ng-click="mainapp.endSession()">Logout</a>
+				</li>
+			</ul>		
+			<ul class="nav navbar-nav navbar-right animate-fade" ng-if="!mainapp.loggedIn">
+				<li ng-repeat="item in nav.anonMenu" ng-class="{ active: nav.isActive(item.link) }">
+					<a ng-href={{item.link}}>{{ item.desc }}</a>
+				</li>					
+			</ul>
+		</div>	 
+	  </div>
+	</nav>	
+</div>

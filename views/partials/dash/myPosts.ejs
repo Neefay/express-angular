@@ -1,0 +1,23 @@
+
+<p>
+	<h2>My posts</h2>
+	<hr></hr>
+	<ul class="list-unstyled">
+		<li ng-repeat="post in dash.selfData.posts | orderBy: order:true" class="animate-fade">
+			<button class="btn btn-danger pull-right" type="submit" ng-click="dash.deletePost(post._id)" style="position:relative;top:18px">
+				<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+			</button>
+			<blockquote>
+				<h3><a ng-href="blog/{{post._id}}">{{ post.title }}</a></h3>
+				{{ post.date | date }}
+				<ul class="list-inline list-unstyled" ng-if="post.tags.length >= 1">
+					<li ng-repeat="tag in post.tags">
+						<span class="label label-info">
+							<a ng-href="blog/tags/{{tag}}">{{ tag }}</a>
+						</span>
+					</li>
+				</ul>
+			</blockquote>
+		</li>
+	</ul>
+</p>

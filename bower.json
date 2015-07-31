@@ -1,0 +1,32 @@
+{
+  "name": "express-angular",
+  "version": "1.0.0",
+  "description": "Just me trying to setup Angular+Express.",
+  "main": "index.ejs",
+  "keywords": [
+    "node",
+    "angular",
+    "express"
+  ],
+  "authors": [
+    "Ian"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "angular-animate": "~1.4.3",
+    "animate.css": "~3.3.0"
+  },
+  "devDependencies": {
+    "angular-bootstrap": "~0.13.1"
+  }
+}

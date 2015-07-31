@@ -1,0 +1,92 @@
+
+.view-animate { width: 100%; position: absolute }
+
+.view-animate.ng-enter {
+	-webkit-animation: fadeIn 0.4s both ease-in;
+	-moz-animation: fadeIn 0.4s both ease-in;
+	animation: fadeIn 0.4s both ease-in;
+}
+
+.view-animate.ng-leave{
+	-webkit-animation: fadeOut 0.3s both ease-in;
+	-moz-animation: fadeOut 0.3s both ease-in;
+	animation: fadeOut 0.3s both ease-in;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active,
+.animate-repeat.ng-leave.ng-leave-active {
+	position: relative;
+	width: 100%;
+}
+
+.animate-repeat.ng-enter {
+	-webkit-animation: zoomInRight 0.5s both ease-in;
+	-moz-animation: zoomInRight 0.5s both ease-in;
+	animation: zoomInRight 0.5s both ease-in;
+}
+
+.animate-repeat.ng-leave {
+	-webkit-animation: zoomOutLeft 0.5s both ease-in;
+	-moz-animation: zoomOutLeft 0.5s both ease-in;
+	animation: zoomOutLeft 0.5s both ease-in;
+}
+
+.animate-UI-alert.ng-enter {
+	-webkit-animation: bounceIn 0.5s both ease-in;
+	-moz-animation: bounceIn 0.5s both ease-in;
+	animation: bounceIn 0.5s both ease-in;
+}
+
+.animate-UI-alert.ng-leave {
+	-webkit-animation: fadeOut 0.5s both ease-in;
+	-moz-animation: fadeOut 0.5s both ease-in;
+	animation: fadeOut 0.5s both ease-in;
+}
+
+.animate-fade.ng-enter {
+	-webkit-animation: fadeIn 0.5s both ease-in;
+	-moz-animation: fadeIn 0.5s both ease-in;
+	animation: fadeIn 0.5s both ease-in;
+}
+
+.animate-fade.ng-leave {
+	-webkit-animation: fadeOut 0.5s both ease-in;
+	-moz-animation: fadeOut 0.5s both ease-in;
+	animation: fadeOut 0.5s both ease-in;
+}
+
+.smooth-height {
+	-webkit-transition: height 0.3s ease-in-out;
+	-moz-transition: height 0.3s ease-in-out;
+	-o-transition: height 0.3s ease-in-out;
+	transition: height 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

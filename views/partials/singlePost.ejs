@@ -1,0 +1,16 @@
+
+<div class="col-lg-12" ng-init="post.InitializeSingle()">
+	<h1>{{post.singlePost.title}}</h1>	
+	<p>
+		<p>By {{post.singlePost._author.name}} on <i>{{post.singlePost.date | date}}</i></p>
+		<ul class="list-inline list-unstyled" ng-if="post.singlePost.tags.length >= 1">
+			<li ng-repeat="tag in post.singlePost.tags">
+				<h3><span class="label label-info">
+					<a ng-href="blog/tags/{{tag}}">{{ tag }}</a>
+				</span></h3>
+			</li>
+		</ul>
+	</p>	
+	<hr></hr>	
+	<p>{{post.singlePost.body}}</p>
+</div>

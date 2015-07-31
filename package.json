@@ -1,0 +1,28 @@
+{
+  "name": "express-angular",
+  "version": "1.0.0",
+  "description": "Just me trying to figure out how to use Angular+Express.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian",
+  "license": "MIT",
+  "devDependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.13.1",
+    "ejs": "^2.3.2",
+    "express": "^4.13.0",
+    "jsonwebtoken": "^5.0.2",
+    "method-override": "^2.3.3",
+    "mongoose": "^4.0.6",
+    "morgan": "^1.6.1",
+    "serve-favicon": "^2.3.0",
+    "grunt": "^0.4.5",
+    "grunt-express-server": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-parallel": "^0.4.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "load-grunt-tasks": "^3.2.0"
+  }
+}

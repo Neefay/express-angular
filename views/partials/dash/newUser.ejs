@@ -1,0 +1,49 @@
+
+<section>
+	<h2>New User</h2>
+	<hr></hr>
+	<form ng-submit="dash.sendUser()">
+		<div class="form-group">
+			<label for="username">Username</label>
+			<input ng-model="dash.formData.username" class="form-control" name="userame" type="text" placeholder="Username" required></input>
+		</div>
+		<div class="form-group">
+			<label for="password1">Password</label>
+			<input ng-model="dash.formData.password1" class="form-control" name="password1" type="password" required></input>
+		</div>
+		<div class="form-group">
+			<label for="password2">Repeat password</label>
+			<input ng-model="dash.formData.password2" class="form-control" name="password2" type="password" required></input>
+		</div>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input ng-model="dash.formData.name" class="form-control" name="name" type="text" placeholder="Anonymous User"></input>
+		</div>
+		<div class="form-group">
+			<label for="privilege">User privilege</label>
+			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" name="privilege" type="button" data-toggle="dropdown">
+			  {{ dash.getPrivilege(dash.formData.userPrivilege) || 'User privileges' }}
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+				 <li><a href="#" ng-click="dash.formData.userPrivilege = 2" ng-if="mainapp.userData.privilege >= 2" ng-cloak>
+					{{dash.getPrivilege(2)}}
+				 </a></li>
+				 <li><a href="#" ng-click="dash.formData.userPrivilege = 1" ng-if="mainapp.userData.privilege >= 1" ng-cloak>
+					{{dash.getPrivilege(1)}}
+				 </a></li>
+				 <li><a href="#" ng-click="dash.formData.userPrivilege = 0">
+					{{dash.getPrivilege(0)}}
+				 </a></li>
+			  </ul>
+			</div>
+		</div>
+		<button class="btn btn-default" type="submit">
+			<span ng-if="!dash.busy">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				Add new user
+			</span>
+			<span ng-if="dash.busy"><img src="images/loading.gif" /></span>
+		</button>
+	</form>
+</section>

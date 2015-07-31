@@ -1,0 +1,44 @@
+
+<section>
+	<h2>New Post</h2>
+	<hr></hr>
+	<form ng-submit="dash.sendPost()">
+		<div class="form-group">
+			<h3><label for="title">Title</label></h3>
+			<input ng-model="dash.postFormData.title" class="form-control" name="title" type="text" placeholder="Title" required></input>
+		</div>
+		<div class="form-group">
+			<textarea rows="5" ng-model="dash.postFormData.body" class="form-control" name="body" type="text-field" required></textarea>
+		</div>
+		<button class="btn btn-default" type="submit">
+			<span ng-if="!dash.busy">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				Submit
+			</span>
+			<span ng-if="dash.busy"><img src="images/loading.gif" /></span>
+		</button>
+	</form>
+	<form ng-submit="dash.addTag()">
+		<div class="form-group">
+			<h3><label for="taginput">Tags</label></h3>
+			<ul class="list-inline list-unstyled">
+				<li ng-repeat="tag in dash.postFormData.tags" class="animate-UI-alert">
+					<h4>
+						<button class="btn btn-info" type="button" ng-click="dash.removeTag(tag)">
+							{{ tag }}
+							<span class="glyphicon glyphicon-minus"></span>
+						</button>
+					</h4>
+				</li>
+			</ul>
+			<div class="input-group col-sm-5">
+				<input ng-model="dash.postFormData.tagInput" class="form-control" name="taginput" type="text" placeholder=""></input>
+				<span class="input-group-btn">
+					<button class="btn btn-default" ng-click="dash.addTag()" type="button">
+						<span class="glyphicon glyphicon-tag"></span>
+					</button>
+				</span>
+			</div>
+		</div>	
+	</form>
+</section>
