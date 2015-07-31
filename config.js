@@ -12,8 +12,8 @@ module.exports = {
 	},
 
 	db: {
-		path: 'mongodb://localhost/',
-		secretKey: 'ClearAsACrispSpringMorning'
+		path: process.env.MONGOLAB_URI || 'mongodb://localhost/',
+		secretKey: process.env.SECRET_KEY || 'ClearAsACrispSpringMorning'
 	},
 
 	queries: {
