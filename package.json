@@ -8,8 +8,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ian",
-  "license": "MIT",
-  "devDependencies": {
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Neefay/express-angular"
+  },  
+  "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.1",
     "ejs": "^2.3.2",
@@ -19,11 +25,14 @@
     "mongoose": "^4.0.6",
     "morgan": "^1.6.1",
     "serve-favicon": "^2.3.0",
+  },
+  "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-express-server": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-parallel": "^0.4.1",
     "grunt-contrib-jshint": "^0.11.2",
     "load-grunt-tasks": "^3.2.0"
-  }
+  },
+  "license": "MIT"
 }
