@@ -3,7 +3,7 @@
 
 module.exports = {
 	env: 'development',
-	port: 8080,
+	port: process.env.PORT || 8080,
 
 	folders: {
 		views: 'views',
